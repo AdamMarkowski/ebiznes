@@ -19,3 +19,9 @@ RUN apt-get install -y sbt
 
 ## Npm
 RUN apt-get install -y npm
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+VOLUME . /usr/src/app
+
+EXPOSE 8000
