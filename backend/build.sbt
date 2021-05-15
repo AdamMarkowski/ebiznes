@@ -8,7 +8,7 @@ lazy val root = (project in file("."))
       guice,
       "com.typesafe.play" %% "play-slick" % "5.0.0",
       "com.typesafe.play" %% "play-slick-evolutions" % "5.0.0",
-      "com.h2database" % "h2" % "1.4.199",
+      "org.xerial"  %  "sqlite-jdbc" % "3.30.1",
       specs2 % Test,
     ),
     scalacOptions ++= Seq(
