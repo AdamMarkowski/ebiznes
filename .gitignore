@@ -1,0 +1,16 @@
+# Ignore Play! working directory #
+bin/
+/backend/db
+.eclipse
+/backend/lib/
+/backend/logs/
+/backend/modules
+/backend/project/project
+/backend/project/target
+/backend/target
+tmp/
+test-result
+server.pid
+*.eml
+/backend/dist/
+.cache
