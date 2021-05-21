@@ -2,10 +2,164 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                           controllers.PersonController.index
-POST    /person                     controllers.PersonController.addPerson
-GET     /persons                    controllers.PersonController.getPersons
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# An example controller showing how to use dependency injection
+GET     /categories                 controllers.CategoryController.getCategories
+GET     /updatecategory/:id         controllers.CategoryController.updateCategory(id:Int)
+POST    /updatecategoryhandle       controllers.CategoryController.updateCategoryHandle
+GET     /deletecategory/:id         controllers.CategoryController.delete(id:Int)
+GET     /addcategory                controllers.CategoryController.addCategory
+GET     /category/:id               controllers.CategoryController.getCategory(id:Int)
+
+GET     /users                      controllers.UserController.getUsers
+GET     /updateuser/:id             controllers.UserController.updateUser(id:Long)
+POST    /updateuserhandle           controllers.UserController.updateUserHandle
+GET     /deleteuser/:id             controllers.UserController.delete(id:Long)
+GET     /adduser                    controllers.UserController.addUser
+GET     /user/:id                   controllers.UserController.getUser(id:Long)
+
+GET     /payments                   controllers.PaymentController.getPayments
+GET     /updatepayment/:id          controllers.PaymentController.updatePayment(id:Int)
+POST    /updatepaymenthandle        controllers.PaymentController.updatePaymentHandle
+GET     /deletepayment/:id          controllers.PaymentController.delete(id:Int)
+GET     /addpayment                 controllers.PaymentController.addPayment
+GET     /payment/:id                controllers.PaymentController.getPayment(id:Int)
+
+GET     /manufacturer/:id            controllers.ManufacturerController.getManufacturer(id:Int)
+GET     /manufacturers               controllers.ManufacturerController.getManufacturers
+GET     /updatemanufacturer/:id      controllers.ManufacturerController.updateManufacturer(id:Int)
+POST    /updatemanufacturerhandle    controllers.ManufacturerController.updateManufacturerHandle
+GET     /deletemanufacturer/:id      controllers.ManufacturerController.delete(id:Int)
+GET     /addmanufacturer             controllers.ManufacturerController.addManufacturer
+
+GET     /product/:id                 controllers.ProductController.getProduct(id:Long)
+GET     /products                    controllers.ProductController.getProducts
+GET     /updateproduct/:id           controllers.ProductController.updateProduct(id:Long)
+POST    /updateproducthandle         controllers.ProductController.updateProductHandle
+GET     /deleteproduct/:id           controllers.ProductController.delete(id:Long)
+GET     /addproduct                  controllers.ProductController.addProduct
+POST    /addproducthandle            controllers.ProductController.addProductHandle
+
+GET     /bill/:id                 controllers.BillController.getBill(id:Long)
+GET     /bills                    controllers.BillController.getBills
+GET     /updatebill/:id           controllers.BillController.updateBill(id:Long)
+POST    /updatebillhandle         controllers.BillController.updateBillHandle
+GET     /deletebill/:id           controllers.BillController.delete(id:Long)
+GET     /addbill                  controllers.BillController.addBill
+POST    /addbillhandle            controllers.BillController.addBillHandle
+
+GET     /favorite/:id             controllers.FavoriteController.getFavorite(id:Long)
+GET     /favorites                controllers.FavoriteController.getFavorites
+GET     /updatefavorite/:id       controllers.FavoriteController.updateFavorite(id:Long)
+POST    /updatefavoritehandle     controllers.FavoriteController.updateFavoriteHandle
+GET     /deletefavorite/:id       controllers.FavoriteController.delete(id:Long)
+GET     /addfavorite              controllers.FavoriteController.addFavorite
+POST    /addfavoritehandle        controllers.FavoriteController.addFavoriteHandle
+
+GET     /line/:id                 controllers.LineItemsController.getById(id: Long)
+GET     /lines                    controllers.LineItemsController.getLineItems
+GET     /updateline/:id           controllers.LineItemsController.updateLine(id:Long)
+POST    /updatelinehandle         controllers.LineItemsController.updateLineHandle
+GET     /deleteline/:id           controllers.LineItemsController.delete(id:Long)
+GET     /addline                  controllers.LineItemsController.addLine
+POST    /addlinehandle            controllers.LineItemsController.addLineHandle
+
+GET     /box/:id                  controllers.BoxController.getBox(id:Long)
+GET     /boxes                    controllers.BoxController.getBoxes
+GET     /updatebox/:id            controllers.BoxController.updateBox(id:Long)
+POST    /updateboxhandle          controllers.BoxController.updateBoxHandle
+GET     /deletebox/:id            controllers.BoxController.delete(id:Long)
+GET     /addbox                   controllers.BoxController.addBox
+POST    /addboxhandle             controllers.BoxController.addBoxHandle
+
+GET     /boxline/:id                 controllers.BoxLineController.getById(id: Long)
+GET     /boxlines                    controllers.BoxLineController.getBoxLines
+GET     /updateboxline/:id           controllers.BoxLineController.updateBoxLine(id:Long)
+POST    /updateboxlinehandle         controllers.BoxLineController.updateBoxLineHandle
+GET     /deleteboxline/:id           controllers.BoxLineController.delete(id:Long)
+GET     /addboxline                  controllers.BoxLineController.addBoxLine
+POST    /addboxlinehandle            controllers.BoxLineController.addBoxLineHandle
+
+GET     /favline/:id                 controllers.FavoriteLineController.getById(id: Long)
+GET     /favlines                    controllers.FavoriteLineController.getFavLines
+GET     /updatefavline/:id           controllers.FavoriteLineController.updateFavLine(id:Long)
+POST    /updatefavlinehandle         controllers.FavoriteLineController.updateFavLineHandle
+GET     /deletefavline/:id           controllers.FavoriteLineController.delete(id:Long)
+GET     /addfavline                  controllers.FavoriteLineController.addFavLine
+POST    /addfavlinehandle            controllers.FavoriteLineController.addFavLineHandle
+
+
+
+# JSONS
+
+GET     /categoryjson/:id               controllers.CategoryController.getCategoryJson(id: Int)
+PUT     /updatecategoryjson/:id         controllers.CategoryController.updateCategoryJson(id:Int)
+DELETE  /deletecategoryjson/:id         controllers.CategoryController.deleteCategoryJson(id:Int)
+POST    /addcategoryjson                controllers.CategoryController.addCategoryJson()
+GET     /categoriesjson                 controllers.CategoryController.getCategoriesJson()
+
+GET     /productjson/:id               controllers.ProductController.getProductJson(id: Long)
+PUT     /updateproductjson/:id         controllers.ProductController.updateProductJson(id:Long)
+DELETE  /deleteproductjson/:id         controllers.ProductController.deleteProductJson(id:Long)
+POST    /addproductjson                controllers.ProductController.addProductJson()
+GET     /productsjson                  controllers.ProductController.getProductsJson()
+
+GET     /lineitemsjson/:id               controllers.LineItemsController.getLineItemsJson(id: Long)
+PUT     /updatelineitemsjson/:id         controllers.LineItemsController.updateLineItemsJson(id:Long)
+DELETE  /deletelineitemsjson/:id         controllers.LineItemsController.deleteLineItemsJson(id:Long)
+POST    /addlineitemsjson                controllers.LineItemsController.addLineItemsJson()
+GET     /linesitemsjson                  controllers.LineItemsController.getLinesItemsJson()
+
+GET     /favoritelinejson/:id              controllers.FavoriteLineController.getFavoriteLineJson(id: Long)
+PUT     /updatefavoritelinejson/:id        controllers.FavoriteLineController.updateFavoriteLineJson(id:Long)
+DELETE  /deletefavoritelinejson/:id        controllers.FavoriteLineController.deleteFavoriteLineJson(id:Long)
+POST    /addfavoritelinejson               controllers.FavoriteLineController.addFavoriteLineJson()
+GET     /favoritelinejson                  controllers.FavoriteLineController.getFavoriteLinesJson()
+
+GET     /favoritejson/:id              controllers.FavoriteController.getFavoriteJson(id: Long)
+PUT     /updatefavoritejson/:id        controllers.FavoriteController.updateFavoriteJson(id:Long)
+DELETE  /deletefavoritejson/:id        controllers.FavoriteController.deleteFavoriteJson(id:Long)
+POST    /addfavoritejson               controllers.FavoriteController.addFavoriteJson()
+GET     /favoritesjson                  controllers.FavoriteController.getFavoritesJson()
+
+GET     /boxlinejson/:id              controllers.BoxLineController.getBoxLineJson(id: Long)
+PUT     /updateboxlinejson/:id        controllers.BoxLineController.updateBoxLineJson(id:Long)
+DELETE  /deleteboxlinejson/:id        controllers.BoxLineController.deleteBoxLineJson(id:Long)
+POST    /addboxlinejson               controllers.BoxLineController.addBoxLineJson()
+GET     /boxlinesjson                 controllers.BoxLineController.getBoxLinesJson()
+
+GET     /boxjson/:id              controllers.BoxController.getBoxJson(id: Long)
+PUT     /updateboxjson/:id        controllers.BoxController.updateBoxJson(id:Long)
+DELETE  /deleteboxjson/:id        controllers.BoxController.deleteBoxJson(id:Long)
+POST    /addboxjson               controllers.BoxController.addBoxJson()
+GET     /boxesjson                controllers.BoxController.getBoxesJson()
+
+GET     /billjson/:id              controllers.BillController.getBillJson(id: Long)
+PUT     /updatebilljson/:id        controllers.BillController.updateBillJson(id:Long)
+DELETE  /deletebilljson/:id        controllers.BillController.deleteBillJson(id:Long)
+POST    /addbilljson               controllers.BillController.addBillJson()
+GET     /billsjson                 controllers.BillController.getBillsJson()
+
+GET     /manufacturerjson/:id               controllers.ManufacturerController.getManufacturer(id: Int)
+PUT     /updatemanufacturerjson/:id         controllers.ManufacturerController.updateManufacturer(id:Int)
+DELETE  /deletemanufacturerjson/:id         controllers.ManufacturerController.updateManufacturerJson(id:Int)
+POST    /addmanufacturerjson                controllers.ManufacturerController.addManufacturerJson()
+GET     /manufacturersjson                  controllers.ManufacturerController.getManufacturersJson()
+
+GET     /userjson/:id               controllers.UserController.getUserJson(id: Long)
+PUT     /updateuserjson/:id         controllers.UserController.updateUserJson(id:Long)
+DELETE  /deleteuserjson/:id         controllers.UserController.deleteUserJson(id:Long)
+POST    /adduserjson                controllers.UserController.addUserJson()
+GET     /usersjson                  controllers.UserController.getUsersJson()
+
+GET     /paymentjson/:id               controllers.PaymentController.getPaymentJson(id: Int)
+PUT     /updatepaymentjson/:id         controllers.PaymentController.updatePaymentJson(id:Int)
+DELETE  /deletpaymentjson/:id         controllers.PaymentController.deletePaymentJson(id:Int)
+POST    /addpaymentjson                controllers.PaymentController.addPaymentJson()
+GET     /paymentsjson                  controllers.PaymentController.getPaymentsJson()
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
