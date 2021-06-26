@@ -14,3 +14,6 @@ server.pid
 *.eml
 /backend/dist/
 .cache
+.bsp
+project
+target
