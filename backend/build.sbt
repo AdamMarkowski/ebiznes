@@ -8,6 +8,9 @@ resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
 resolvers += "Akka Snapshot Repository" at "https://repo.akka.io/snapshots/"
 
+resolvers += "Atlassian Maven" at "https://maven.atlassian.com/content/repositories/atlassian-public/"
+resolvers += Resolver.jcenterRepo
+
 scalaVersion := "2.12.8"
 
 libraryDependencies ++= Seq( ehcache , ws , specs2 % Test , guice )

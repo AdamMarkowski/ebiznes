@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  my-server:
+    container_name: 'my-server'
+    build:
+      context: ./backend
+      # dockerfile: ./backend/Dockerfile
+    environment:
+      - API_HOST=http://localhost:9000
+      - CLIENT_HOST=http://localhost:3000
+      - GOOGLE_ID=174299924106-2qt09pbofuhqvc214j2m6fpl5n0u4r4v.apps.googleusercontent.com
+      - GOOGLE_SECRET=apXPn6kU90F9CWFjDldLJl2q
+    ports:
+      - "9000:9000"
+    expose:
+      - "9000"
+  my-client:
+    container_name: 'my-client'
+    build:
+      context: ./frontend
+      # dockerfile: ./frontend/Dockerfile
+    depends_on:
+      - my-server
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
