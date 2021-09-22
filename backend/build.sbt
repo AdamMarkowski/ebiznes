@@ -19,3 +19,6 @@ libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-slick-evolutions" % "4.0.0",
   "org.xerial"        %  "sqlite-jdbc" % "3.30.1"
 )
+
+// https://stackoverflow.com/questions/30556439/error-deploying-play-framework-on-aws-beanstalk-docker
+javaOptions in Universal ++= Seq("-Dpidfile.path=/dev/null")
