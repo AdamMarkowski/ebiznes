@@ -15,4 +15,5 @@ WORKDIR /home/ebiznes/project
 COPY . /home/ebiznes/project
 RUN sbt compile
 EXPOSE 9000
-CMD sbt -mem 1024 run
+# CMD sbt -mem 1024 run
+CMD sbt run
