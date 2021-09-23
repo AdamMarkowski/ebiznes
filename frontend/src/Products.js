@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
+import { API_HOST } from './env.json'
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -8,7 +9,7 @@ const Home = () => {
 
   const fetchProducts = () => {
     console.log('FetchProducts')
-    var url = "http://localhost:9000/productsjson"
+    var url = `${API_HOST}/productsjson`
 
     fetch(url, {
       mode: 'cors',
@@ -26,7 +27,7 @@ const Home = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    var url = 'http://localhost:9000/addproductjson'
+    var url = `${API_HOST}/addproductjson`
 
     const formData = {
       name: event.target.elements.name.value,

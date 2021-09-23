@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { API_HOST } from './env.json'
 
 const Users = () => {
   const [users, setUsers] = useState([])
@@ -6,7 +7,7 @@ const Users = () => {
 
   const fetchUsers = () => {
     console.log('FetchUsers')
-    var url = "http://localhost:9000/usersjson"
+    var url = `${API_HOST}/usersjson`
 
     fetch(url, {
       mode: 'cors',
@@ -25,7 +26,7 @@ const Users = () => {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    var url = 'http://localhost:9000/adduserjson'
+    var url = `${API_HOST}/adduserjson`
 
     fetch(url, {
       method: 'POST',

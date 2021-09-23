@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { API_HOST } from './env.json'
 
 const Categories = () => {
   const [categories, setCategories] = useState([])
@@ -6,7 +7,7 @@ const Categories = () => {
 
   const fetchCategories = () => {
     console.log('FetchCategories')
-    var url = "http://localhost:9000/categoriesjson"
+    var url = `${API_HOST}/categoriesjson`
 
     fetch(url, {
       mode: 'cors',
@@ -25,7 +26,7 @@ const Categories = () => {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    var url = 'http://localhost:9000/addcategoryjson'
+    var url = `${API_HOST}/addcategoryjson`
 
     fetch(url, {
       method: 'POST',

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { API_HOST } from './env.json'
 
 const Manufacturers = () => {
   const [manufacturers, setManufacturers] = useState([])
@@ -6,7 +7,7 @@ const Manufacturers = () => {
 
   const fetchManufacturers = () => {
     console.log('FetchManufacturers')
-    var url = "http://localhost:9000/manufacturersjson"
+    var url = `${API_HOST}/manufacturersjson`
 
     fetch(url, {
       mode: 'cors',
@@ -25,7 +26,7 @@ const Manufacturers = () => {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    var url = 'http://localhost:9000/addmanufacturerjson'
+    var url = `${API_HOST}/addmanufacturerjson`
 
     fetch(url, {
       method: 'POST',

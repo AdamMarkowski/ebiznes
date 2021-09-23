@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import {
   useParams
 } from "react-router-dom";
+import { API_HOST } from './env.json'
 
 const Product = () => {
   let { id } = useParams();
@@ -13,7 +14,7 @@ const Product = () => {
 
   const fetchProduct = () => {
     console.log('FetchProduct')
-    var url = "http://localhost:9000/productsjson"
+    var url = `${API_HOST}/productsjson`
 
     fetch(url, {
       mode: 'cors',

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { API_HOST } from './env.json'
 
 const Payments = () => {
   const [payments, setPayments] = useState([])
@@ -6,7 +7,7 @@ const Payments = () => {
 
   const fetchPayments = () => {
     console.log('FetchPayments')
-    var url = "http://localhost:9000/paymentsjson"
+    var url = `${API_HOST}/paymentsjson`
 
     fetch(url, {
       mode: 'cors',
@@ -25,7 +26,7 @@ const Payments = () => {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    var url = 'http://localhost:9000/addpaymentjson'
+    var url = `${API_HOST}/addpaymentjson`
 
     fetch(url, {
       method: 'POST',
