@@ -20,5 +20,15 @@ libraryDependencies ++= Seq(
   "org.xerial"        %  "sqlite-jdbc" % "3.30.1"
 )
 
+libraryDependencies ++= Seq(
+  "com.iheart" %% "ficus" % "1.4.7",
+  "com.mohiva" %% "play-silhouette" % "6.1.1",
+  "com.mohiva" %% "play-silhouette-password-bcrypt" % "6.1.1",
+  "com.mohiva" %% "play-silhouette-persistence" % "6.1.1",
+  "com.mohiva" %% "play-silhouette-crypto-jca" % "6.1.1",
+  "com.mohiva" %% "play-silhouette-totp" % "6.1.1",
+  "net.codingwell" %% "scala-guice" % "4.2.6"
+)
+
 // https://stackoverflow.com/questions/30556439/error-deploying-play-framework-on-aws-beanstalk-docker
 javaOptions in Universal ++= Seq("-Dpidfile.path=/dev/null")

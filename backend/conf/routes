@@ -12,13 +12,6 @@ GET     /deletecategory/:id         controllers.CategoryController.delete(id:Int
 GET     /addcategory                controllers.CategoryController.addCategory
 GET     /category/:id               controllers.CategoryController.getCategory(id:Int)
 
-GET     /users                      controllers.UserController.getUsers
-GET     /updateuser/:id             controllers.UserController.updateUser(id:Long)
-POST    /updateuserhandle           controllers.UserController.updateUserHandle
-GET     /deleteuser/:id             controllers.UserController.delete(id:Long)
-GET     /adduser                    controllers.UserController.addUser
-GET     /user/:id                   controllers.UserController.getUser(id:Long)
-
 GET     /payments                   controllers.PaymentController.getPayments
 GET     /updatepayment/:id          controllers.PaymentController.updatePayment(id:Int)
 POST    /updatepaymenthandle        controllers.PaymentController.updatePaymentHandle
@@ -147,12 +140,6 @@ DELETE  /deletemanufacturerjson/:id         controllers.ManufacturerController.u
 POST    /addmanufacturerjson                controllers.ManufacturerController.addManufacturerJson()
 GET     /manufacturersjson                  controllers.ManufacturerController.getManufacturersJson()
 
-GET     /userjson/:id               controllers.UserController.getUserJson(id: Long)
-PUT     /updateuserjson/:id         controllers.UserController.updateUserJson(id:Long)
-DELETE  /deleteuserjson/:id         controllers.UserController.deleteUserJson(id:Long)
-POST    /adduserjson                controllers.UserController.addUserJson()
-GET     /usersjson                  controllers.UserController.getUsersJson()
-
 GET     /paymentjson/:id               controllers.PaymentController.getPaymentJson(id: Int)
 PUT     /updatepaymentjson/:id         controllers.PaymentController.updatePaymentJson(id:Int)
 DELETE  /deletpaymentjson/:id         controllers.PaymentController.deletePaymentJson(id:Int)
@@ -163,3 +150,9 @@ GET     /message                    controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# Authentication
+POST        /signUp                                   controllers.SignUpController.signUp
+POST        /signIn                                   controllers.SignInController.signIn
+POST        /signOut                                  controllers.SignInController.signOut
+GET         /authenticate/:provider        controllers.SocialAuthController.authenticate(provider: String)
