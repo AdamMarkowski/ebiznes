@@ -13,6 +13,7 @@ import Categories from './Categories.js'
 import Manufacturers from './Manufacturers.js'
 import Payments from './Payments'
 import Product from './Product'
+import Products from './Products'
 
 function About() {
   return <h2>About</h2>;
@@ -37,6 +38,9 @@ function App() {
           </Route>
            <Route path="/payments">
             <Payments />
+          </Route>
+          <Route path="/products">
+            <Products />
           </Route>
            <Route path="/product/:id">
             <Product />
