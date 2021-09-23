@@ -9,11 +9,42 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import './styles.css';
 
+import { useEffect, useState } from "react"
+
+import Cookies from 'universal-cookie';
+
 import {
   Link
 } from "react-router-dom";
 
 const Layout = ({ children }) => {
+  const cookies = new Cookies()
+  const [currentUser, setCurrentUser] = useState(null)
+
+  useEffect(() => {
+    console.log('useEffect! ')
+    console.log(cookies.get('email'))
+    setCurrentUser(cookies.get('email'))
+  })
+
+  const renderCurrentUser = () =>
+   <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   {currentUser}
+  </a>
+
+  const renderSignIn = () =>
+    <>
+      <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Sign in using
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="http://localhost:9000/authenticate/google">Google</a></li>
+        <li><a class="dropdown-item" href="http://localhost:9000/authenticate/facebook">Facebook</a></li>
+      </ul>
+    </div>
+    </>
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,13 +85,16 @@ const Layout = ({ children }) => {
                 </ul>
               </li> */}
             </ul>
-            <form className="d-flex">
+            { currentUser && renderCurrentUser() }
+            { !currentUser && renderSignIn() }
+
+            {/* <form className="d-flex">
               <button className="btn btn-outline-dark" type="submit">
                 <i className="bi-cart-fill me-1" />
                 Cart
                 <span className="badge bg-dark text-white ms-1 rounded-pill">0</span>
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
       </nav>

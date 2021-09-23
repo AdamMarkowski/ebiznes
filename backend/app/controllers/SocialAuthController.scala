@@ -26,6 +26,7 @@ class SocialAuthController @Inject()(scc: DefaultSilhouetteControllerComponents,
           } yield {
             val Token(name, value) = CSRF.getToken.get
             result.withCookies(Cookie(name, value, httpOnly = false))
+            .withCookies(Cookie("email", profile.email.getOrElse(""), httpOnly = false))
           }
         }
       case _ => Future.failed(new ProviderException(s"Cannot authenticate with unexpected social provider $provider"))
